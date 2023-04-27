@@ -4,6 +4,46 @@
 
 ## **Solution**
 
+1) Web Crawling --- We will scrap all the news content (under various category) -- twitter feed/news scraping (Request/BeautifulSoup/NLTK)
+
+2) Reference Contact with News Choice Category -- 
+
+DB --> ORM (SQL Alchemy | sqllite)
+Contacts 
+Key|Contacts | Email Id | WhatsApp | Catogory 
+
+CategoryChoice
+Contacts Key | Category | Sub Category Choice | Priority 
+1 | Sports | Cricket | 2
+1 | Sports | Baseball | 1
+1 | Sports | TT | 3
+1 | Sports | Badminton | 4
+
+
+3) Retrive contact --> Email and Whatsapp 
+4) Connecting to Email and Whatsapp Server 
+5) Sending the Information 
+6) Storing the information send for only 2 days 
+
+### Creation of Twitter Account 
+
+1) Create Twitter Developer Account
+Twitter Dev User Name: @TariniTeam
+
+Steps To Get Authentication Keys:
+1) Create a Twitter account if you don't already have one
+2) Visit 'https://apps.twitter.com' and follow the required prompts to create a developer project (Twitter requires you to    answer some questions before they will approve your account. Approval was nearly instant in my case.)
+3) Requesting the API key and secret via the Developer Portal causes Twitter to produce the following three things:
+   API key (this is your 'consumer key')
+   API secret key (this is your 'consumer secret')
+   Bearer token
+4) Next, visit the 'Authentication Tokens' area of the Developer Portal and generate an 'Access token & secret'. This will    provide you with the following two items:
+   Access token (this is your 'token key')
+   Access token secret (this is your 'token secret')
+
+5) The consumer key, consumer secret, token key, and token secret should be sufficient to do Twitter API calls (they were    for me).
+
+
 
 
 
