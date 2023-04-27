@@ -25,6 +25,11 @@ Contacts Key | Category | Sub Category Choice | Priority
 5) Sending the Information 
 6) Storing the information send for only 2 days 
 
+### Errors Faced 
+
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+
+
 ### Creation of Twitter Account 
 
 1) Create Twitter Developer Account
