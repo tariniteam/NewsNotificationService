@@ -10,15 +10,8 @@
 ## **Architecture Diagram**
 
 
-## **Parser**
 
-
-
-## **Lexical Analysis/Tokenization**
-
-
-
-## **Usage of NNSr**
+## **Usage of NNS**
 
 
 
