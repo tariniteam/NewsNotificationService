@@ -100,7 +100,7 @@ To install packages pip install package_name or you can create a new file requir
 
 ## **GitHub link**
 
-•	https://github.com/tariniteam/QueryMetaDataParser  
+•	https://github.com/tariniteam/NewsNotificationService/
 
 ## **Contributors**
 
