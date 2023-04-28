@@ -75,11 +75,12 @@ Steps To Get Authentication Keys:
 
 ### Required Python packages
 
-1.	BeautifulSoup
-2.	Sqlite3
-3.	requests
-4. pandas
-5. pywhatkit
+1.	BeautifulSoup (bs4)
+2.	smtplib
+3.	Sqlite3
+4.	requests
+5. pandas
+6. pywhatkit
 
 
 ### Project Structure
