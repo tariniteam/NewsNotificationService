@@ -1,16 +1,6 @@
 # NewsNotificationService
 ## **Problem Statement**
 
-## **Initial Setup**
-
-### **Gmail SMTP Connection**
-Temporary token 
-Smtplib 
-Step 1 -  google port = 587(standard secure smtp port)
-Step 2  - google SMTP server (smtp.gmail.com)
-Step 3 – Temporary token password fr gmail id  from Google Security 
-Google account -> security -> app setting -> complete 2 step verification -> “app passwords” section -> enter your gmail password -> Select app (SMTPEMail app) , ->Generate password tokem for the app -> it is one time creation and hence copy and keep it for your application and it is functional for 1 application->  app password will be  created & use this token password along with the gmail id  in the python script to connect it to the SMTP gmail sevrer 
-e.g. teamtarini@gmail.com
 
 
 ## **Solution**
@@ -92,6 +82,16 @@ Steps To Get Authentication Keys:
 
 ### Project Structure
 
+## **Initial Setup**
+
+### **Gmail SMTP Connection**
+Temporary token 
+Smtplib 
+Step 1 -  google port = 587(standard secure smtp port)
+Step 2  - google SMTP server (smtp.gmail.com)
+Step 3 – Temporary token password fr gmail id  from Google Security 
+Google account -> security -> app setting -> complete 2 step verification -> “app passwords” section -> enter your gmail password -> Select app (SMTPEMail app) , ->Generate password tokem for the app -> it is one time creation and hence copy and keep it for your application and it is functional for 1 application->  app password will be  created & use this token password along with the gmail id  in the python script to connect it to the SMTP gmail sevrer 
+e.g. teamtarini@gmail.com
 
 
 ## **Technical Implementation**
