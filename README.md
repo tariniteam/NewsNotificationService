@@ -68,8 +68,9 @@ Steps To Get Authentication Keys:
 ### Tools/Technologies used
 
 
-1.	Python
-2.	SQLite Database
+1.	Python (Download from https://www.python.org/downloads/)
+2.	Pycharm
+3.	SQLite Database
 
 
 ### Required Python packages
@@ -84,6 +85,16 @@ Steps To Get Authentication Keys:
 ### Project Structure
 
 ## **Initial Setup**
+
+### **Package Installation**
+
+Add python interpreter 
+Settings -> Python interpreter -> add local interpreter -> virtualenv environment -> Choose Existing Environment and install the packages 
+
+Install Pywhatkit 
+![image](https://user-images.githubusercontent.com/40171616/235209586-cebf6278-e305-446a-839b-9ff5c2ef4d7c.png)
+
+
 
 ### **Gmail SMTP Connection**
 Temporary token 
