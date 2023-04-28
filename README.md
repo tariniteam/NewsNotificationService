@@ -78,6 +78,7 @@ Steps To Get Authentication Keys:
 2.	Sqlite3
 3.	requests
 4. pandas
+5. pywhatkit
 
 
 ### Project Structure
