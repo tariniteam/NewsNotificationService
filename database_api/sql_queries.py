@@ -7,7 +7,6 @@ class ContactExtraction:
     def __init__(self) -> None:
         self._session = Session()
 
-
     def get_all_contact(self):
         self.contacts = self.session.query(Contact).all()
         self.contact_list = []  # List of Dictionaries
@@ -37,19 +36,33 @@ class ContactExtraction:
         self.df_contact_category = self.df_contact_category.append(self.contact_category_list_of_dictionary, ignore_index=True, sort=False)
         return self.df_contact_category
 
-    def get_all_contact_info_with_category_priority(self):
+    def get_all_contact_info_with_category_priority_dataframe(self):
         self.df_contact = self.get_all_contact_dataframe()
         self.df_contact_category = self.get_all_contact_category_dataframe()
         # join contact and category on the basis of contact_id and get the complete information
         self.df_contact_info_with_category = pd.merge(self.df_contact, self.df_contact_category, on='contact_id')
         return self.df_contact_info_with_category
 
-    def get_specific_contact_info_with_category_priority(self):
+
+    def get_specific_contact(self):
+        pass
+
+    def get_specific_contact_dataframe(self):
+        pass
+
+    def get_specific_contact_category(self):
+        pass
+
+    def get_specific_contact_category_dataframe(self):
+        pass
+
+    def get_specific_contact_info_with_category_priority_dataframe(self):
         pass
 
 if __name__ == '__main__':
-    pass
-
+    objContactExtraction = ContactExtraction()
+    objContactExtraction.get_all_contact_info_with_category_priority_dataframe()
+    objContactExtraction.get_specific_contact_info_with_category_priority_dataframe()
 
 
 # 2 - extract a session
