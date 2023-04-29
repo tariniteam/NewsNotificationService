@@ -52,6 +52,7 @@ class TOIApi:
             self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
             self.headline_list.append(self.headline_dict)
             print("List of Dictionary: ", self.headline_list)
+        return self.headline_list
 
     def get_refined_headline_info(self, headline):
         #print("Get Refined Headline Info", headline)
@@ -68,12 +69,16 @@ class TOIApi:
     def get_headline_dataframe(self):
         """
         """
-        self.headline_dict = self.get_headline()
-        self.df_headline = pd.DataFrame(self.headline_dict)
+        print("Inside get_headline_dataframe")
+        self.headline_list_of_dictionary = self.get_headline()
+        print( "self.headline_dict", self.headline_list_of_dictionary)
+        self.df_headline = pd.DataFrame()
+        self.df_headline = self.df_headline.append(self.headline_list_of_dictionary, ignore_index=True, sort=False)
+        print(self.df_headline)
         return self.df_headline
     
 if __name__ == '__main__':
     ObjTOIApi = TOIApi()
     print('test')
-    ObjTOIApi.get_headline()
+    ObjTOIApi.get_headline_dataframe()
 
