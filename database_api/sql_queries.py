@@ -54,7 +54,10 @@ class ContactExtraction:
         pass
 
     def get_specific_contact_category_dataframe(self):
-        pass
+        self.specific_contact_category_list_of_dictionary = self.get_specific_contact_category()
+        self.df_specific_contact_category = pd.DataFrame()
+        self.df_specific_contact_category = self.df_specific_contact_category.append(self.specific_contact_category_list_of_dictionary, ignore_index=True, sort=False)
+        return self.df_specific_contact_category
 
     def get_specific_contact_info_with_category_priority_dataframe(self):
         pass
