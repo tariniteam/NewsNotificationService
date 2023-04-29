@@ -22,7 +22,6 @@ class TOIApi:
         """
         Generate the first top N headline from TOI and pass it to calling generator method
         """
-        # print('testing')
         counter = 0
         for divtag in self._soup.find_all('div', {'class': 'headlines-list'}):
             for ultag in divtag.find_all('ul', {'class': 'clearfix'}):
@@ -48,14 +47,13 @@ class TOIApi:
         headline_list = []
         for headline in self.yield_headline():            
             print(headline)
-            category, sub_category, headline, headline_url = self.get_refined_headline_info(headline)
-            headline_dict = /
-            {'category':category, 'sub_category': sub_category, 'headline': headline, 'headline_url': headline_url}
-            headline_list.append(headline_dict)
+            self.category, self.sub_category, self.headline, self.headline_url = self.get_refined_headline_info(headline)
+           # headline_dict = /
+            #{'category':category, 'sub_category': sub_category, 'headline': headline, 'headline_url': headline_url}
+            #headline_list.append(headline_dict)
 
-    def get_refined_headline_info(headline):
-        pass
-        # return category, sub_category, headline, headline_url
+    def get_refined_headline_info(self, headline):
+        return self.category, self.sub_category, self.headline, self.headline_url
 
     def get_headline_dataframe(self):
         """
