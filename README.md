@@ -60,26 +60,6 @@ Contacts Key | Category | Sub Category Choice | Priority
 
 ### Project Structure
 
-## **Initial Setup**
-
-### **Package Installation**
-
-Add python interpreter 
-Settings -> Python interpreter -> add local interpreter -> virtualenv environment -> Choose Existing Environment and install the packages 
-
-Install Pywhatkit 
-![image](https://user-images.githubusercontent.com/40171616/235209586-cebf6278-e305-446a-839b-9ff5c2ef4d7c.png)
-
-
-
-### **Gmail SMTP Connection**
-Temporary token 
-Smtplib 
-Step 1 -  google port = 587(standard secure smtp port)
-Step 2  - google SMTP server (smtp.gmail.com)
-Step 3 – Temporary token password fr gmail id  from Google Security 
-Google account -> security -> app setting -> complete 2 step verification -> “app passwords” section -> enter your gmail password -> Select app (SMTPEMail app) , ->Generate password tokem for the app -> it is one time creation and hence copy and keep it for your application and it is functional for 1 application->  app password will be  created & use this token password along with the gmail id  in the python script to connect it to the SMTP gmail sevrer 
-e.g. teamtarini@gmail.com
 
 
 ## **Technical Implementation**
@@ -87,13 +67,20 @@ e.g. teamtarini@gmail.com
 
 ### I.	Prepare your Environment
 
-
 1.	Create a virtual environment in python 
 
               virtualenv venv_project_name
 
 
-2.	Install the python packages in the virtual environment described in the pre-requisite section.
+2.	Add Python Interpreter to the pycharm project by following below steps:
+     - Go to Settings
+     - Choose Python Interpreter
+     - Add Local Interpreter
+     - Choose virtualenv environment
+     - Choose Existing Environment and install the packages 
+
+
+3.	Install the python packages in the virtual environment described in the pre-requisite section.
 
               pip install <packagename>
        
@@ -101,7 +88,24 @@ e.g. teamtarini@gmail.com
 To install packages pip install package_name or you can create a new file requirements.txt (this file will contains one package name each row) and install all packages once using : pip install -r requirements.txt
  
  
-3.	Create project structure as mentioned in the pre-requisite section.
+4.	Create project structure as mentioned in the pre-requisite section.
+
+
+5.  Configure Gmail SMTP Connection
+
+ Generate Temporary token password for gmail id from Google Security 
+   - Go to Google Account
+   - Go to the Security Section and choose App Setting under the Security Section
+   - Complete the two step verification
+   - Go the "app passwords" section
+   - Enter your gmail password
+   - Choose app and provide a name (SMTPEMail app)
+   - Generate password token for the app SMTPEMail (It is one time creation and hence copy and keep it for your application and it is functional for 1 application)
+   - App password will be  created & use this token password along with the gmail id  in the python script to connect it to the SMTP gmail sevrer 
+
+ 
+e.g. GmailID: teamtarini@gmail.com, Token:   XXXXXXXXXXXXXXXX
+
 
 
 ### II.	Create Framework for Database API
@@ -116,7 +120,7 @@ To install packages pip install package_name or you can create a new file requir
 ### III.	Create Framework for News API
 
  
-BeautifulSoup python package is used to for web data scraping.
+BeautifulSoup python package is used to for web crawling and data scraping.
 TOIApi reads the data from the Times of India website and extracts the required data such as categories, sub category, header title etc.
 
 The class TOIApi does the following functionalities:
@@ -131,7 +135,9 @@ The class TOIApi does the following functionalities:
 
 ### IV.	Create Framework for Gmail API
 
+Step 1 -  Standard Secure SMTP Port to be set to 587
 
+Step 2 - Google SMTP server to be set to smtp.gmail.com
 
 ### V.	Create Framework for Whatsapp API
 
