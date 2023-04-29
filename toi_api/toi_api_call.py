@@ -28,9 +28,10 @@ class TOIApi:
                 if (counter <= 10):
                     for litag in ultag.find_all('li'):
                         counter = counter + 1
-                        # print(str(counter) + " - https://timesofindia.indiatimes.com" + litag.find('a')['href'])
-                        raw_headline = str(counter) + " - https://timesofindia.indiatimes.com" + litag.find('a')['href']
-                        # print(raw_headline)
+                        #print(str(counter) + " - https://timesofindia.indiatimes.com" + litag.find('a')['href'])
+                        #raw_headline = str(counter) + " - https://timesofindia.indiatimes.com" + litag.find('a')['href']
+                        raw_headline = "https://timesofindia.indiatimes.com" + litag.find('a')['href']
+                        print("Raw Headline", raw_headline)
                         yield raw_headline
 
 
@@ -46,20 +47,24 @@ class TOIApi:
         """
         headline_list = []  #List of Dictionaries
         for headline in self.yield_headline():            
-            print(headline)
+            print("Headline inside get_headline method", headline)
             self.category, self.sub_category, self.headline, self.headline_url = self.get_refined_headline_info(headline)
             self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
             self.headline_list.append(self.headline_dict)
 
     def get_refined_headline_info(self, headline):
+        print("Get Refined Headline Info", headline)
+        self.headline_url = headline
+        self.headline_split_list = self.headline_url.split("/")
+        print ("List",self.headline_split_list )
         return self.category, self.sub_category, self.headline, self.headline_url
 
     def get_headline_dataframe(self):
         """
         """
         self.headline_dict = self.get_headline()
-        self.df_headline = pd.DataFrame(headline_dict)
-        return df_headline
+        self.df_headline = pd.DataFrame(self.headline_dict)
+        return self.df_headline
     
 if __name__ == '__main__':
     ObjTOIApi = TOIApi()
