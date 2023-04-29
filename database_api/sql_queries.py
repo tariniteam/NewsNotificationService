@@ -8,7 +8,8 @@ class ContactExtraction:
         self._session = Session()
 
 
-    def getAllContact(self):
+
+    def get_all_contact(self):
         contacts = self.session.query(Contact).all()
         contact_list = []
         for person in contacts:
@@ -18,20 +19,20 @@ class ContactExtraction:
             print(person.email_id)
             print(person.whatsapp_no)
 
-    def getAllContactCategory(self):
+    def get_all_contact_category(self):
         contacts_categories = self.session.query(ContactCategory).all()
         contact_category_list = []
         for contact_category in contacts_categories:
             pass
 
-    def getAllContactInfoWithCategoryPriority(self):
+    def get_all_contact_info_with_category_priority(self):
         df_contact = self.getAllContact()
         df_contact_category = self.getAllContactCategory()
         # join contact and category on the basis of contact_id and get the complete information
         df_contact_info_with_category = None
         return df_contact_info_with_category
 
-    def getSpecificContactInfoWithCategoryPriority():
+    def get_specific_contact_info_with_category_priority():
         pass
 
 if __name__ == '__main__':
