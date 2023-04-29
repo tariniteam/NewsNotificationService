@@ -26,31 +26,6 @@ Contacts Key | Category | Sub Category Choice | Priority
 5) Sending the Information 
 6) Storing the information send for only 2 days 
 
-### Errors Faced 
-
-453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
-
-
-### Creation of Twitter Account 
-
-1) Create Twitter Developer Account
-Twitter Dev User Name: @TariniTeam
-
-Steps To Get Authentication Keys:
-1) Create a Twitter account if you don't already have one
-2) Visit 'https://apps.twitter.com' and follow the required prompts to create a developer project (Twitter requires you to    answer some questions before they will approve your account. Approval was nearly instant in my case.)
-3) Requesting the API key and secret via the Developer Portal causes Twitter to produce the following three things:
-   API key (this is your 'consumer key')
-   API secret key (this is your 'consumer secret')
-   Bearer token
-4) Next, visit the 'Authentication Tokens' area of the Developer Portal and generate an 'Access token & secret'. This will    provide you with the following two items:
-   Access token (this is your 'token key')
-   Access token secret (this is your 'token secret')
-
-5) The consumer key, consumer secret, token key, and token secret should be sufficient to do Twitter API calls (they were    for me).
-
-
-
 
 
 ## **Architecture Diagram**
@@ -115,14 +90,13 @@ e.g. teamtarini@gmail.com
 
 1.	Create a virtual environment in python 
 
-              virtualenv venv_sql_parser
+              virtualenv venv_project_name
 
 
 2.	Install the python packages in the virtual environment described in the pre-requisite section.
 
-              flask
-              sql-parser
-              sqlite3
+              pip install <packagename>
+       
 
 To install packages pip install package_name or you can create a new file requirements.txt (this file will contains one package name each row) and install all packages once using : pip install -r requirements.txt
  
@@ -133,17 +107,21 @@ To install packages pip install package_name or you can create a new file requir
 ### II.	Create Database
 
 
-1.	Create Sqlite Database – QMP_DB.db
+1.	Create Sqlite Database – Person.db
 
  
-2.	Create Tables dropdownlist and users in the database QMP_DB.db
- 
-
-### III.	Create Web Pages
-
 
  
+
+### III.	Create Framework for News API
+
  
+ BeautifulSoup python package is used to for web data scraping.
+ The class TOIApi does the following functionalities:
+ 1. yield_headline(): Read individual article links from <a href> tag from the Times of India Website and Generate the first top N headline from TOI and pass it to        calling generator method
+ 2. get_refined_headline_info(): Extract the data category, sub category, headline, headlineurl for each of the article links.
+ 3. get_headline(): Get the output from method get_refined_headline_info() and convert it into the list of dictionaries.
+ 4. get_headline_dataframe(): Convert the list of dictionaries (of step 3) into dataframe.
 
 
 ### IV.	Connect Web Pages using the Flask Framework
