@@ -53,10 +53,15 @@ class TOIApi:
             self.headline_list.append(self.headline_dict)
 
     def get_refined_headline_info(self, headline):
-        print("Get Refined Headline Info", headline)
+        #print("Get Refined Headline Info", headline)
+        Node = "timesofindia.indiatimes.com"
         self.headline_url = headline
         self.headline_split_list = self.headline_url.split("/")
-        print ("List",self.headline_split_list )
+        #print ("List",self.headline_split_list )
+        self.headline =self.headline_split_list[-3].replace('-', ' ')
+        self.category =self.headline_split_list[self.headline_split_list.index(Node) + 1]
+        self.sub_category =self.headline_split_list[self.headline_split_list.index(Node) + 2]
+
         return self.category, self.sub_category, self.headline, self.headline_url
 
     def get_headline_dataframe(self):
