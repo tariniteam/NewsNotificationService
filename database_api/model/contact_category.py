@@ -1,8 +1,6 @@
 from sqlalchemy import Column, String, Integer, Date
-
 from base import Base
 
-# Contacts Key | Category | Sub Category Choice | Priority 
 
 class ContactCategory(Base):
     __tablename__ = 'ContactCategory'
