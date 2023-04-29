@@ -42,15 +42,14 @@ class TOIApi:
         2) Sub Category
         3) Headline
         4) HeadlineURL
-        each yeild will form a single dictionary and such N dictionary will form N iteam in the list.
+        each yield will form a single dictionary and such N dictionary will form N item in the list.
         """
-        headline_list = []
+        headline_list = []  #List of Dictionaries
         for headline in self.yield_headline():            
             print(headline)
             self.category, self.sub_category, self.headline, self.headline_url = self.get_refined_headline_info(headline)
-           # headline_dict = /
-            #{'category':category, 'sub_category': sub_category, 'headline': headline, 'headline_url': headline_url}
-            #headline_list.append(headline_dict)
+            self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
+            self.headline_list.append(self.headline_dict)
 
     def get_refined_headline_info(self, headline):
         return self.category, self.sub_category, self.headline, self.headline_url
@@ -58,8 +57,8 @@ class TOIApi:
     def get_headline_dataframe(self):
         """
         """
-        headline_dict = self.get_headline()  
-        df_headline = pd.DataFrame(headline_dict)
+        self.headline_dict = self.get_headline()
+        self.df_headline = pd.DataFrame(headline_dict)
         return df_headline
     
 if __name__ == '__main__':
