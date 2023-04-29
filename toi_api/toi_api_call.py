@@ -24,15 +24,14 @@ class TOIApi:
         """
         counter = 0
         for divtag in self._soup.find_all('div', {'class': 'headlines-list'}):
-            for ultag in divtag.find_all('ul', {'class': 'clearfix'}):
-                if (counter <= 10):
-                    for litag in ultag.find_all('li'):
-                        counter = counter + 1
-                        #print(str(counter) + " - https://timesofindia.indiatimes.com" + litag.find('a')['href'])
-                        #raw_headline = str(counter) + " - https://timesofindia.indiatimes.com" + litag.find('a')['href']
-                        raw_headline = "https://timesofindia.indiatimes.com" + litag.find('a')['href']
-                        print("Raw Headline", raw_headline)
+            for ultag in divtag.find_all('ul', {'class': 'clearfix'}):                
+                for litag in ultag.find_all('li'):
+                    if (counter <= self._number_of_headline):
+                        counter = counter + 1                       
+                        raw_headline = "https://timesofindia.indiatimes.com" + litag.find('a')['href']                        
                         yield raw_headline
+                    else:
+                        break
 
 
     def get_headline(self):
@@ -47,11 +46,11 @@ class TOIApi:
         """
         self.headline_list = []  #List of Dictionaries
         for headline in self.yield_headline():            
-            print("Headline inside get_headline method", headline)
+            # print("Headline inside get_headline method", headline)
             self.category, self.sub_category, self.headline, self.headline_url = self.get_refined_headline_info(headline)
             self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
             self.headline_list.append(self.headline_dict)
-            print("List of Dictionary: ", self.headline_list)
+            # print("List of Dictionary: ", self.headline_list)
         return self.headline_list
 
     def get_refined_headline_info(self, headline):
@@ -62,23 +61,25 @@ class TOIApi:
         #print ("List",self.headline_split_list )
         self.headline =self.headline_split_list[-3].replace('-', ' ')
         self.category =self.headline_split_list[self.headline_split_list.index(Node) + 1]
-        self.sub_category =self.headline_split_list[self.headline_split_list.index(Node) + 2]
+        if len(self.headline_split_list) <= 7:
+            self.sub_category = None
+        else:
+            self.sub_category =self.headline_split_list[self.headline_split_list.index(Node) + 2]
 
         return self.category, self.sub_category, self.headline, self.headline_url
 
-    def get_headline_dataframe(self):
+    @classmethod
+    def get_headline_dataframe(class_instance):
         """
         """
-        print("Inside get_headline_dataframe")
-        self.headline_list_of_dictionary = self.get_headline()
-        print( "self.headline_dict", self.headline_list_of_dictionary)
-        self.df_headline = pd.DataFrame()
-        self.df_headline = self.df_headline.append(self.headline_list_of_dictionary, ignore_index=True, sort=False)
-        print(self.df_headline)
-        return self.df_headline
+        # print("Inside get_headline_dataframe")
+        class_instance.headline_list_of_dictionary = class_instance().get_headline()
+        # print( "self.headline_dict", class_instance.headline_list_of_dictionary)
+        class_instance.df_headline = pd.DataFrame()
+        class_instance.df_headline = class_instance.df_headline.append(class_instance.headline_list_of_dictionary, ignore_index=True, sort=False)       
+        return class_instance.df_headline
     
 if __name__ == '__main__':
-    ObjTOIApi = TOIApi()
-    print('test')
-    ObjTOIApi.get_headline_dataframe()
+    df_headline = TOIApi.get_headline_dataframe()
+    print(df_headline)
 
