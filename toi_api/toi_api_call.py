@@ -45,12 +45,13 @@ class TOIApi:
         4) HeadlineURL
         each yield will form a single dictionary and such N dictionary will form N item in the list.
         """
-        headline_list = []  #List of Dictionaries
+        self.headline_list = []  #List of Dictionaries
         for headline in self.yield_headline():            
             print("Headline inside get_headline method", headline)
             self.category, self.sub_category, self.headline, self.headline_url = self.get_refined_headline_info(headline)
             self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
             self.headline_list.append(self.headline_dict)
+            print("List of Dictionary: ", self.headline_list)
 
     def get_refined_headline_info(self, headline):
         #print("Get Refined Headline Info", headline)
