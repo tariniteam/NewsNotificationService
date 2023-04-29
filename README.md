@@ -104,7 +104,7 @@ To install packages pip install package_name or you can create a new file requir
 3.	Create project structure as mentioned in the pre-requisite section.
 
 
-### II.	Create Database
+### II.	Create Framework for Database API
 
 
 1.	Create Sqlite Database – Person.db
@@ -116,19 +116,24 @@ To install packages pip install package_name or you can create a new file requir
 ### III.	Create Framework for News API
 
  
- BeautifulSoup python package is used to for web data scraping.
- The class TOIApi does the following functionalities:
- 1. yield_headline(): Read individual article links from <a href> tag from the Times of India Website and Generate the first top N headline from TOI and pass it to        calling generator method
- 2. get_refined_headline_info(): Extract the data category, sub category, headline, headlineurl for each of the article links.
- 3. get_headline(): Get the output from method get_refined_headline_info() and convert it into the list of dictionaries.
- 4. get_headline_dataframe(): Convert the list of dictionaries (of step 3) into dataframe.
+BeautifulSoup python package is used to for web data scraping.
+TOIApi reads the data from the Times of India website and extracts the required data such as categories, sub category, header title etc.
+
+The class TOIApi does the following functionalities:
+ 
+| Step | Method   | Description    |
+| :---:   | :---: | :---: |
+| 1. | yield_headline()   | Read individual article links from tag from the Times of India Website and Generate the first top N headline from TOI and pass it to calling generator method   |
+| 2. | get_refined_headline_info()   | Extract the data category, sub category, headline, headlineurl for each of the article links.   |
+| 3. | get_headline()   | Get the output from method get_refined_headline_info() and convert it into the list of dictionaries.   |
+| 4. | get_headline_dataframe()   | Convert the list of dictionaries (of step 3) into dataframe.   |
 
 
-### IV.	Connect Web Pages using the Flask Framework
+### IV.	Create Framework for Gmail API
 
 
 
-### V.	Create sql_parser python script
+### V.	Create Framework for Whatsapp API
 
 
 
