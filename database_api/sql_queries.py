@@ -38,11 +38,11 @@ class ContactExtraction:
         return self.df_contact_category
 
     def get_all_contact_info_with_category_priority(self):
-        df_contact = self.getAllContact()
-        df_contact_category = self.getAllContactCategory()
+        self.df_contact = self.get_all_contact_dataframe()
+        self.df_contact_category = self.get_all_contact_category_dataframe()
         # join contact and category on the basis of contact_id and get the complete information
-        df_contact_info_with_category = None
-        return df_contact_info_with_category
+        self.df_contact_info_with_category = pd.merge(self.df_contact, self.df_contact_category, on='contact_id')
+        return self.df_contact_info_with_category
 
     def get_specific_contact_info_with_category_priority(self):
         pass
