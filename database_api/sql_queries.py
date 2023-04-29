@@ -64,7 +64,11 @@ class ContactExtraction:
         return self.df_specific_contact_category
 
     def get_specific_contact_info_with_category_priority_dataframe(self):
-        pass
+        self.df_specific_contact = self.get_specific_contact_dataframe()
+        self.df_specific_contact_category = self.get_specific_contact_category_dataframe()
+        # join contact and category on the basis of contact_id and get the complete information
+        self.df_specific_contact_info_with_category = pd.merge(self.df_specific_contact, self.df_specific_contact_category, on='contact_id')
+        return self.df_specific_contact_info_with_category
 
 if __name__ == '__main__':
     objContactExtraction = ContactExtraction()
