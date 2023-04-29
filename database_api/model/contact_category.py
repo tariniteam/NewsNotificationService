@@ -11,9 +11,9 @@ class ContactCategory(Base):
     sub_category = Column(String)
     priority = Column(String)
 
-    def __init__(self, contact_category_id, contact_id, category, sub_category, priorty):
+    def __init__(self, contact_category_id, contact_id, category, sub_category, priority):
         self.contact_category_id = contact_category_id
         self.contact_id = contact_id
         self.category = category
-        self.email_id = sub_category
-        self.whatsapp_no = priorty
+        self.sub_category = sub_category
+        self.priority = priority

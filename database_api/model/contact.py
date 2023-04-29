@@ -1,4 +1,4 @@
-import SQLAlchemy
+import sqlalchemy 
 from base import Base
 
 

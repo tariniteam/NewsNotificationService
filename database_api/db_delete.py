@@ -10,18 +10,9 @@ Base.metadata.create_all(engine)
 # 3 - create a new session
 session = Session()
 
-# 4 - create Conact
-
-contact_1 = Contact(1,'Rajesh','viki.keshari@gmail.com','+919820663554')
-contact_2 = Contact(2,'Sanjana','navalkar60@gmail.com','+919699683328')
-contact_3 = Contact(3,'Richa','viki.keshari@gmail.com','+919820663554')
-contact_4 = Contact(4,'Rohit','navalkar60@gmail.com','+919699683328')
-
-
-session.add(contact_1)
-session.add(contact_2)
-session.add(contact_3)
-session.add(contact_4)
+session.query(ContactCategory).delete()
+# session.commit()
+# session.close()
 
 contact_category_1 = ContactCategory(1,'1','city','lucknow','1')
 contact_category_2 = ContactCategory(2,'1','india','','2')
