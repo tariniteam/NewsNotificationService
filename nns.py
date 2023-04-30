@@ -26,6 +26,7 @@ class NewsNotification:
 
 ## from email.message import EmailMessage
     def match_news(self, contact_name, email_id, whatsapp_no, df_for_each_contact):
+        df_headline = TOIApi.get_headline_dataframe()
         each_contact_category_list,each_contact_sub_category_list = self.get_associated_news(contact_name, email_id, whatsapp_no, df_for_each_contact)
         for index, row in df_for_each_contact.iterrows():
             category = row['category']
@@ -38,7 +39,8 @@ class NewsNotification:
                      <p>Hey {contact_name},  Please have a look at today's important headlines.</p>
                     {build_table(df_headline.loc[:, ['headline', 'headline_url']] )}   </body></html>"""
 
-            if (category in each_contact_category_list) and (sub_category in each_contact_sub_category_list) and (priority<=3):
+            if (category in each_contact_category_list) and (sub_category in each_contact_sub_category_list) and (priority<=3)\
+                and (category in df_headline['category']) and (sub_category in df_headline['sub_category']):
                       send_email_notification(contact_name, email_id, message)
                       send_whatsapp_notification(contact_name, whatsapp_no, message)
 
