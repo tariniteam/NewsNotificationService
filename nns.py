@@ -24,14 +24,51 @@ class NewsNotification:
         each_contact_sub_category_list = df_for_each_contact['sub_category'].tolist()
         return each_contact_category_list, each_contact_sub_category_list
 
+## from email.message import EmailMessage
     def match_news(self, contact_name, email_id, whatsapp_no, df_for_each_contact):
         each_contact_category_list,each_contact_sub_category_list = self.get_associated_news(contact_name, email_id, whatsapp_no, df_for_each_contact)
         for index, row in df_for_each_contact.iterrows():
             category = row['category']
             sub_category = row['sub_category']
-            if ( category in each_contact_category_list) and (sub_category in each_contact_sub_category_list):
-                      send_email_notification(contact_name, email_id)
-                      send_whatsapp_notification(contact_name, whatsapp_no)
+            priority = row['priority']
+
+            message = f"""\
+                     <html><head></head><body>
+                     <p>News Headline for Today</p>
+                     <p>Hey {contact_name},  Please have a look at today's important headlines.</p>
+                    {build_table(df_headline.loc[:, ['headline', 'headline_url']] )}   </body></html>"""
+
+            if (category in each_contact_category_list) and (sub_category in each_contact_sub_category_list) and (priority<=3):
+                      send_email_notification(contact_name, email_id, message)
+                      send_whatsapp_notification(contact_name, whatsapp_no, message)
+
+    def send_email_notification (self, contact_name, email_to, message,  email_from="tariniteam@gmail.com"):
+        simple_email_context = ssl.create_default_context()
+
+        try:
+            # Connect to the server
+            print("Connecting to server...")
+            TIE_server = smtplib.SMTP(smtp_server, smtp_port)
+            TIE_server.starttls(context=simple_email_context)
+            TIE_server.login(email_from, pswd)
+            print("Connected to server :-)")
+
+            # Send the actual email
+            print()
+            print(f"Sending email to - {email_to}")
+            TIE_server.sendmail(email_from, email_to, message)
+            print(f"Email successfully sent to - {email_to}")
+
+        # If there's an error, print it out
+        except Exception as e:
+            print(e)
+
+        # Close the port
+        finally:
+            TIE_server.quit()
+
+    def send_whatsapp_notification(self, contact_name, message, whatsapp_no):
+        pass
 
 
     def process_contact_group(self):
