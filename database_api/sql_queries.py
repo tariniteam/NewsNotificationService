@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../database_api')
 from model.contact import Contact
 from model.contact_category import ContactCategory    
 from base import Session, engine, Base
