@@ -16,7 +16,7 @@ class TOIApi:
         self._page_request = requests.get(self._url)
         self._data = self._page_request.content
         self._soup = BeautifulSoup(self._data,"html.parser")
-        self._number_of_headline = 10
+        self._number_of_headline = 100
 
     def yield_headline(self):
         """

@@ -1,8 +1,8 @@
 import sys
-sys.path.append('../database_api')
-from model.contact import Contact
-from model.contact_category import ContactCategory    
-from base import Session, engine, Base
+# sys.path.append('../database_api')
+from database_api.model.contact import Contact
+from database_api.model.contact_category import ContactCategory    
+from database_api.base import Session, engine, Base
 import pandas as pd
 
 class ContactExtraction:

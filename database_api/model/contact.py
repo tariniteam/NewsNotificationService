@@ -1,5 +1,5 @@
 import sqlalchemy 
-from base import Base
+from database_api.base import Base
 
 
 class Contact(Base):

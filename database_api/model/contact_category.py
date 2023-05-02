@@ -1,5 +1,6 @@
 from sqlalchemy import Column, String, Integer, Date
-from base import Base
+# from base import Base
+from database_api.base import Base
 
 
 class ContactCategory(Base):
