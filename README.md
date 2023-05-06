@@ -110,8 +110,31 @@ e.g. GmailID: teamtarini@gmail.com, Token:   XXXXXXXXXXXXXXXX
 
 ### II.	Create Framework for Database API
 
+Packages Used - sqlalchemy 
+Concept used - ORM (Object Relational Mapping) 
 
 1.	Create Sqlite Database – Person.db
+
+base.py
+- Create an engine to connect to the SQLite Database "Person.db"
+- Create a session using the Sessionmaker for the db engine.
+- Declare "Base" as a declarative base.
+
+
+db_insert.py
+- Generate Database Schema
+- create a new session using Session()
+- Create test data by creating a contact object (example: contact_1) and by passing the test data into the "Contact" class. (example: contact_1 = Contact(1,'TestName','testemail@gmail.com','+919000000000'))
+- Add the contact created to the session.
+- Add the user preference of news using the contact category class. (for example:  contact_category_1 = ContactCategory(1,'1','city','lucknow','1')). UserId 1 first preference is to get news associated with the Lucknow city.
+- Capture 4 preferences of each user in the above manner and assign it a priority 
+- Add the contact_category_1 to the session.
+- Commit the Session and then close the session.
+
+db_delete.py
+
+sql_queries.py
+
 
  
 
