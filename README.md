@@ -115,13 +115,13 @@ Concept used - ORM (Object Relational Mapping)
 
 1.	Create Sqlite Database – Person.db
 
-base.py
+#### base.py
 - Create an engine to connect to the SQLite Database "Person.db"
 - Create a session using the Sessionmaker for the db engine.
 - Declare "Base" as a declarative base.
 
 
-db_insert.py
+#### db_insert.py
 - Generate Database Schema
 - create a new session using Session()
 - Create test data by creating a contact object (example: contact_1) and by passing the test data into the "Contact" class. (example: contact_1 = Contact(1,'TestName','testemail@gmail.com','+919000000000'))
@@ -132,7 +132,7 @@ db_insert.py
 - Commit the Session and then close the session.
 
 
-sql_queries.py
+#### sql_queries.py
 
 - Create a class "ContactExtraction" in sql_queries.py
 - The class "ContactExtraction" has the below listed methods:
