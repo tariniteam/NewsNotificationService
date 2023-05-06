@@ -10,7 +10,7 @@ class GmailAPI:
         self._email_from = "tariniteam@gmail.com"
         self._password = "vrltlgwaasphvjkf"
 
-
+    #message = "Subject: Test subject\r\n\r\nThis is the body"
     def send_email (self, message, subject, email_to):
        # Create context
        self._subject = subject
