@@ -113,12 +113,21 @@ e.g. GmailID: teamtarini@gmail.com, Token:   XXXXXXXXXXXXXXXX
 Packages Used - sqlalchemy 
 Concept used - ORM (Object Relational Mapping) 
 
-1.	Create Sqlite Database – Person.db
 
 #### base.py
 - Create an engine to connect to the SQLite Database "Person.db"
 - Create a session using the Sessionmaker for the db engine.
 - Declare "Base" as a declarative base.
+
+
+#### contact.py
+- sqlalchemy and Base python packages is used.
+-  Using the ORM concept create a class "Contact" which inherits the "Base" class and declare columns  contact_id, contact_name, email_id, whatsapp_no as class variables.
+
+
+#### contact_category.py
+- sqlalchemy and Base python packages is used.
+-  Using the ORM concept create a class "ContactCategory" which inherits the "Base" class and declare columns contact_category_id, contact_id, category, sub_category, priority  as class variables.
 
 
 #### db_insert.py
