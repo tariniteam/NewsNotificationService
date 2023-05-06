@@ -16,7 +16,7 @@ class TOIApi:
         self._page_request = requests.get(self._url)
         self._data = self._page_request.content
         self._soup = BeautifulSoup(self._data,"html.parser")
-        self._number_of_headline = 100
+        self._number_of_headline = 5
 
     def yield_headline(self):
         """
@@ -47,25 +47,31 @@ class TOIApi:
         self.headline_list = []  #List of Dictionaries
         for headline in self.yield_headline():            
             # print("Headline inside get_headline method", headline)
+            print(headline)
             self.category, self.sub_category, self.headline, self.headline_url = self.get_refined_headline_info(headline)
-            self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
-            self.headline_list.append(self.headline_dict)
+            if self.headline is not None:
+                self.headline_dict = {'category': self.category, 'sub_category': self.sub_category, 'headline': self.headline, 'headline_url': self.headline_url}
+                self.headline_list.append(self.headline_dict)
             # print("List of Dictionary: ", self.headline_list)
         return self.headline_list
 
     def get_refined_headline_info(self, headline):
         #print("Get Refined Headline Info", headline)
-        Node = "timesofindia.indiatimes.com"
-        self.headline_url = headline
-        self.headline_split_list = self.headline_url.split("/")
-        #print ("List",self.headline_split_list )
-        self.headline =self.headline_split_list[-3].replace('-', ' ')
-        self.category =self.headline_split_list[self.headline_split_list.index(Node) + 1]
-        if len(self.headline_split_list) <= 7:
-            self.sub_category = None
-        else:
-            self.sub_category =self.headline_split_list[self.headline_split_list.index(Node) + 2]
-
+        try:
+            Node = "timesofindia.indiatimes.com"
+            self.headline_url = headline
+            self.headline_split_list = self.headline_url.split("/")
+            #print ("List",self.headline_split_list )
+            self.headline =self.headline_split_list[-3].replace('-', ' ')
+            self.category =self.headline_split_list[self.headline_split_list.index(Node) + 1]
+            if len(self.headline_split_list) <= 7:
+                self.sub_category = None
+            else:
+                self.sub_category =self.headline_split_list[self.headline_split_list.index(Node) + 2]
+        except:
+            # continue:ValueError
+            return None, None, None, None
+        
         return self.category, self.sub_category, self.headline, self.headline_url
 
     @classmethod
