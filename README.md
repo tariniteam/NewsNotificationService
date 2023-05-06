@@ -110,8 +110,8 @@ e.g. GmailID: teamtarini@gmail.com, Token:   XXXXXXXXXXXXXXXX
 
 ### II.	Create Framework for Database API
 
-Packages Used - sqlalchemy 
-Concept used - ORM (Object Relational Mapping) 
+- Packages Used - sqlalchemy 
+- Concept used - ORM (Object Relational Mapping) 
 
 
 #### base.py
@@ -196,6 +196,18 @@ Create a Meta App: Go to developers.facebook.com > My Apps > Create App. Select 
 
 Select apptype as "Business"
 AppName = NewsNotificationService
+
+### VI.	Main NNS Process
+
+- The main NNS process is written in the NNS.py. NewsNotification class is created under NNS.py and it contains below listed methods:
+
+ | Step | Method   | Description    |
+| :---:   | :---: | :---: |
+| 1. | get_contact_detail()   | Get each user name, email id and whatsapp number from the dataframe.  |
+| 2. | get_associated_news()   | Get associated news for a particular category and subcategory  |
+| 3. | match_news()   | Call the get_associated_news method which will match user category with news coming from TOI  |
+| 4. | process_contact_group()   | For each contact, process the match_news() method |
+
 
 ### **Conclusion**
 
