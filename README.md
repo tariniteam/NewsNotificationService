@@ -131,13 +131,19 @@ db_insert.py
 - Add the contact_category_1 to the session.
 - Commit the Session and then close the session.
 
-db_delete.py
 
 sql_queries.py
 
+- Create a class "ContactExtraction" in sql_queries.py
+- The class "ContactExtraction" has the below listed methods:
 
- 
-
+| Step | Method   | Description    |
+| :---:   | :---: | :---: |
+| 1. | get_all_contact()   | Create a List of dictionaries and each dictionary will have the users details such as contact_id,contact_name, email_id,whatsapp_no |
+| 2. | get_all_contact_dataframe()   | Convert the contact list of dictionary generated in step 1 to a dataframe  |
+| 3. | get_all_contact_category()   |  Create a List of dictionaries and each dictionary will have the users preference such as contact_category_id, contact_category, contact_id, category, sub_category, priority |
+| 4. | get_all_contact_category_dataframe()   |  Convert the contact category list of dictionary generated in step 3 to a dataframe   |
+| 5. | get_all_contact_info_with_category_priority_dataframe()   | Join contact and category on the basis of contact_id and get the complete information and store it into a dataframe |
  
 
 ### III.	Create Framework for News API
@@ -147,13 +153,13 @@ BeautifulSoup python package is used to for web crawling and data scraping.
 TOIApi reads the data from the Times of India website and extracts the required data such as categories, sub category, header title etc.
 
 The class TOIApi does the following functionalities:
- 
-| Step | Method   | Description    |
+ | Step | Method   | Description    |
 | :---:   | :---: | :---: |
-| 1. | yield_headline()   | Read individual article links from tag from the Times of India Website and Generate the first top N headline from TOI and pass it to calling generator method   |
+| 1. | get_all_contact()   | Read individual article links from tag from the Times of India Website and Generate the first top N headline from TOI and pass it to calling generator method   |
 | 2. | get_refined_headline_info()   | Extract the data category, sub category, headline, headlineurl for each of the article links.   |
 | 3. | get_headline()   | Get the output from method get_refined_headline_info() and convert it into the list of dictionaries.   |
 | 4. | get_headline_dataframe()   | Convert the list of dictionaries (of step 3) into dataframe.   |
+
 
 
 ### IV.	Create Framework for Gmail API
