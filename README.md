@@ -135,10 +135,19 @@ The class TOIApi does the following functionalities:
 
 ### IV.	Create Framework for Gmail API
 
-Step 1 -  Standard Secure SMTP Port to be set to 587
+Step 1 - Configure Gmail SMTP mentioned in above steps
 
-Step 2 - Google SMTP server to be set to smtp.gmail.com
+Step 2 -  Standard Secure SMTP Port to be set to 587, Google SMTP server to be set to smtp.gmail.com
 
+Step 3 - Install Packages import smtplib, ssl
+
+Step 4 - GMAIL API Class
+   - Declare the SMTP port, server, email from and to variables.
+   - Get the email subject and body in the form of a message from the TOI API Class.
+   - Login to the SMTP server using the email_from email id and password credentials
+   - Use the sendmail method to send the message to the email_to email IDs.
+   - Close the port
+   
 ### V.	Create Framework for Whatsapp API
 
 go to https://developers.facebook.com/?no_redirect=1
