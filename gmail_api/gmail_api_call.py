@@ -14,20 +14,20 @@ class GmailAPI:
 
     def send_email (self):
        # Create context
-       simple_email_context = ssl.create_default_context()
+       self.simple_email_context = ssl.create_default_context()
        try:
           # Connect to the server
           print("Connecting to server...")
-          TIE_server = smtplib.SMTP(smtp_server, smtp_port)
-          TIE_server.starttls(context=simple_email_context)
-          TIE_server.login(email_from, pswd)
+          TIE_server = smtplib.SMTP(self.smtp_server, self.smtp_port)
+          TIE_server.starttls(context=self.simple_email_context)
+          TIE_server.login(self.email_from, self.pswd)
           print("Connected to server :-)")
     
           # Send the actual email
           print()
-          print(f"Sending email to - {email_to}")
-          TIE_server.sendmail(email_from, email_to, message)
-          print(f"Email successfully sent to - {email_to}")
+          print(f"Sending email to - {self.email_to}")
+          TIE_server.sendmail(self.email_from, self.email_to, self.message)
+          print(f"Email successfully sent to - {self.email_to}")
 
         # If there's an error, print it out
        except Exception as e:
