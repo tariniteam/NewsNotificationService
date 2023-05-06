@@ -197,6 +197,9 @@ Create a Meta App: Go to developers.facebook.com > My Apps > Create App. Select 
 Select apptype as "Business"
 AppName = NewsNotificationService
 
+Generate Token here - https://developers.facebook.com/apps/922571919013156/whatsapp-business/wa-dev-console/?business_id=1892455941122612 
+The token is valid for 24 hours
+
 ### VI.	Main NNS Process
 
 - The main NNS process is written in the NNS.py. NewsNotification class is created under NNS.py and it contains below listed methods:
