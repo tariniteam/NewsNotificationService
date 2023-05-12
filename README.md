@@ -183,12 +183,14 @@ Step 3 - GMAIL API Class
    - Login to the SMTP server using the email_from email id and password credentials
    - Use the sendmail method to send the message to the email_to email IDs.
    - Close the port
+
+![alt text](https://github.com/tariniteam/NewsNotificationService/blob/main/Output%20Screenshots/Email%20API%20Notification%20Output.png)
    
 ### V.	Create Framework for Whatsapp API
 
 Pywhatkit package is used to send notifications to whatsapp phone numbers present in the Database.
 
-
+![alt text](https://github.com/tariniteam/NewsNotificationService/blob/main/Output%20Screenshots/Whatsapp%20Notification%20Output.jpeg)
 
 ### VI.	Main NNS Process
 
