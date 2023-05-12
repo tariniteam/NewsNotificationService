@@ -186,19 +186,9 @@ Step 3 - GMAIL API Class
    
 ### V.	Create Framework for Whatsapp API
 
-go to https://developers.facebook.com/?no_redirect=1
-Choose Whatsapp Business Platform
-Register as a Meta Developer - https://developers.facebook.com/async/registration
-sign in to Facebook Account 
-
-Create a Meta App: Go to developers.facebook.com > My Apps > Create App. Select the Business type and follow the prompts on your screen. If you are asked to choose a Use Case as part of the app creation flow, choose Other as your use case, then select Business.
+Pywhatkit package is used to send notifications to whatsapp phone numbers present in the Database.
 
 
-Select apptype as "Business"
-AppName = NewsNotificationService
-
-Generate Token here - https://developers.facebook.com/apps/922571919013156/whatsapp-business/wa-dev-console/?business_id=1892455941122612 
-The token is valid for 24 hours
 
 ### VI.	Main NNS Process
 
