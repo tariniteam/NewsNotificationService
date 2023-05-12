@@ -164,10 +164,10 @@ TOIApi reads the data from the Times of India website and extracts the required 
 The class TOIApi does the following functionalities:
  | Step | Method   | Description    |
 | :---:   | :---: | :---: |
-| 1. | get_all_contact()   | Read individual article links from tag from the Times of India Website and Generate the first top N headline from TOI and pass it to calling generator method   |
-| 2. | get_refined_headline_info()   | Extract the data category, sub category, headline, headlineurl for each of the article links.   |
-| 3. | get_headline()   | Get the output from method get_refined_headline_info() and convert it into the list of dictionaries.   |
-| 4. | get_headline_dataframe()   | Convert the list of dictionaries (of step 3) into dataframe.   |
+| 1. | yield_headline()   |  This method generates the first top N headline from TOI and pass it to calling generator method |
+| 2. | get_headline()   |   Get the yield headline and convert it into list of dictionaries.Four column dictionary are getting formed with column: 1) Category 2) Sub Category 3) Headline 4) HeadlineURL. Each yield will form a single dictionary and such N dictionary will form N item in the list. |
+| 3. | get_refined_headline_info()   | Get refined category,sub_category, headline, headline_url   |
+| 4. | get_headline_dataframe()   | Convert the dictionary data to dataframe   |
 
 
 
